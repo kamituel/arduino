@@ -1,2 +1,13 @@
-# arduino
-Arduino projects and notes.
+# Arduino notes and projects
+
+This repository contains all the simple projects and notes I made when playing
+with the Arduino.
+
+## Projects
+
+- [Arduino doorbell](src/doorbell)
+- [NEX Remote](https://github.com/kamituel/nex-remote) (separate repo for now)
+
+## Notes
+
+- [Programming the Arduino Pro Mini with USB-UART converter](doc/programming-arduino-pro-mini.md)
