@@ -11,3 +11,4 @@ with the Arduino.
 ## Notes
 
 - [Programming the Arduino Pro Mini with USB-UART converter](doc/programming-arduino-pro-mini.md)
+- [BH1750 light meter](doc/light-meter-BH1750/light-meter-bh1750.md)
