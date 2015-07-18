@@ -35,7 +35,7 @@ Binary implementation requires you to convert a RTTTF string to a C array first.
 It has the advantage, though, that both program and variables require less space on
 Arduino. And the code is simpler.
 
-I've prepared a simple page that aids with the conversion: [here](https://jsfiddle.net/kamituel/mb8adxrk/7/embedded/result/).
+I've prepared a simple page that aids with the conversion: [here](https://jsfiddle.net/kamituel/mb8adxrk/8/embedded/result/).
 
 For instance, this RTTTF string:
 
@@ -105,7 +105,7 @@ var map_binary = function (duration, pitch, dotted, octave) {
     var dotted_bin = dotted ? 1 : 0;
     var octave_bin = octave - 4;
 
-    return duration | (octave_bin << 5) | (dotted_bin << 7) | (pitch_bin << 8);
+    return duration | (octave_bin << 6) | (dotted_bin << 8) | (pitch_bin << 9);
 };
 
 var map_array = function (duration, pitch, dotted, octave) {

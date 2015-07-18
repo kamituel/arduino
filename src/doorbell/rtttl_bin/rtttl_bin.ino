@@ -18,8 +18,17 @@ void setup() {
 }
 
 void loop(void) {
-  play_rttl(a_team);
-  delay(1000);
+  int melody = 0;
+  while (true) {
+    if (melodies[melody] == 0) {
+      melody = 0;
+    }
+    
+    play_rttl(melodies[melody]);
+    delay(1000);
+
+    melody++;
+  }
 }
 
 void play_rttl(int* melody) {
