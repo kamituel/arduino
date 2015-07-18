@@ -27,7 +27,7 @@ char *a_team       = "A-Team:d=8,o=5,b=125:4d#6,a#,2d#6,16p,g#,4a#,4d#.,p,16g,16
 
 ```
 
-Sample code is in [src/doorbell/rtttf](../../src/doorbell/rtttf).
+Sample code is in [src/doorbell/rtttf](../../src/doorbell/rtttl).
 
 ## Binary implementation
 
@@ -49,7 +49,7 @@ Will be converted to:
 int a_team[] = {125, 1860, 552, 1858, 48, 3112, 548, 1956, 40, 2864, 560, 1864, 552, 2376, 1858, 48, 1480, 1104, 560, 3240, 546, 0};
 ```
 
-Sample code is in [src/doorbell/rtttf_bin](../../src/doorbell/rtttf_bin).
+Sample code is in [src/doorbell/rtttf_bin](../../src/doorbell/rtttl_bin).
 
 ### RTTTF string to C array conversion in Javascript
 
@@ -154,4 +154,4 @@ document.querySelector('#rtttf').onkeyup = function (evt) {
 
 ## Notes
 
-Both programs require a [`Notes.h`](../../src/doorbell/rtttf_bin/Notes.h) header that specifies the music notes' frequencies.
+Both programs require a [`Notes.h`](../../src/doorbell/rtttl_bin/Notes.h) header that specifies the music notes' frequencies.
