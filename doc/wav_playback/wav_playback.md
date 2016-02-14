@@ -1,5 +1,7 @@
 # WAV audio playback from SD card
 
+**Note**: I couldn't get sufficienty high audio quality from Arduino Pro Mini 3.3V 8MHz, so I gave up on that, thus this guide incomplete.
+
 ## Prerequisities
 
 The TMRpcm library reads audio files from an SD card. You need to make sure that
@@ -9,6 +11,8 @@ to play audio files from it.
 Micro-SD reader setup [is covered here](../sd-slot-pololu/pololu-sd.md).
 
 ## Converting audio files
+
+TODO: is it working?
 
 ```bash
 ffmpeg -i voice01.m4a \              # input file
@@ -45,6 +49,12 @@ ffmpeg version N-44123-g5d55830 Copyright (c) 2000-2012 the FFmpeg developers
  DE u8              PCM unsigned 8-bit
 ```
 Not all of those are supported for WAV though.
+
+## Playing on 8 MHz Arduino Pro Mini
+
+```bash
+ffmpeg -i voice01.wav -filter:a "atempo=2.0" -vn voice2x.wav
+```
 
 ## Connecting speaker
 

@@ -16,3 +16,4 @@ with the Arduino.
 - [Pololu micro-SD card reader](doc/sd-slot-pololu/pololu-sd.md)
 - [Passive elements](doc/passive/passive.md)
 - [RTTTF ringtones playback](doc/rtttf/rtttf.md)
+- [Low power Arduino](doc/low_power/low-power.md)

@@ -4,30 +4,91 @@
  * 
  */
 
+// czarny zielony bialy szary-ciemny szary-jasny
+// niebieski niepodpiety
+
+// For light meter
+#include "BH1750.h"
+
+// For energy efficient sleep
+#include "LowPower.h"
+
 #include "Notes.h"
 #include "Melodies.h" 
 
-#define DEBUG
+//#define DEBUG
 #define SPEAKER_PIN 9
 #define OCTAVE_OFFSET 0
+
+/* Light threshold in the box will be lower */
+#ifdef DEBUG
+#define LIGHT_THRESHOLD 80
+#endif
+#ifndef DEBUG
+#define LIGHT_THRESHOLD 10
+#endif
+
+BH1750 light_meter;
+
+uint16_t read_light_level() {
+  // In this mode, light meter will automatically
+  // move to power down mode after measurement.
+  // No need to do this manually.
+  light_meter.configure(BH1750_ONE_TIME_LOW_RES_MODE); 
+  return light_meter.readLightLevel();
+}
+
+// See: http://www.rocketscream.com/blog/2011/07/04/lightweight-low-power-arduino-library/
+void sleep() {
+  LowPower.powerDown(SLEEP_120MS, ADC_OFF, BOD_OFF);
+}
 
 void setup() {
 #ifdef DEBUG
   Serial.begin(9600);
 #endif
+
+  // Initially, light meter will be in power down mode.
+  // We will power it up before each measurement in order
+  // to save power.
+  light_meter.begin(BH1750_POWER_DOWN);
+
+  // Sleep for a bit, to avoid incorrect initial light level readout.
+  delay(1000);
 }
 
+int melody = -1;
+bool just_played = false;
+
 void loop(void) {
-  int melody = 0;
-  while (true) {
+  uint16_t light_level = read_light_level();
+
+#ifdef DEBUG
+  Serial.print("Light level: ");
+  Serial.println(light_level);
+#endif
+
+  if (light_level > LIGHT_THRESHOLD) {
+    melody++;
+
     if (melodies[melody] == 0) {
       melody = 0;
     }
-    
+
+#ifdef DEBUG
+    Serial.println("Dzwonek dzwoni");
+#endif
     play_rttl(melodies[melody]);
     delay(1000);
 
-    melody++;
+    // Sometimes the next readout, after the previous one, is high, even
+    // though the light is already off. This causes melody to play second time.
+    // To avoid this, read and discard the next light level readout.
+    // TODO: This workaround seems not to work 100% of the time.
+    read_light_level();
+    delay(1000);
+  } else {
+    sleep();
   }
 }
 
