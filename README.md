@@ -17,3 +17,4 @@ with the Arduino.
 - [Passive elements](doc/passive/passive.md)
 - [RTTTF ringtones playback](doc/rtttf/rtttf.md)
 - [Low power Arduino](doc/low_power/low-power.md)
+- [I2C](doc/i2c/README.md)
