@@ -25,7 +25,7 @@
 #define LIGHT_THRESHOLD 80
 #endif
 #ifndef DEBUG
-#define LIGHT_THRESHOLD 10
+#define LIGHT_THRESHOLD 80
 #endif
 
 BH1750 light_meter;
