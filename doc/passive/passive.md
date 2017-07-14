@@ -1,5 +1,13 @@
 # Passive elements
 
+- [5mm LED diode][]
+- [BC337 NPN transistor][]
+- [Resistor color codes][]
+
+## 5mm LED diode
+
+![LED diode](./led_diode.png)
+
 ## BC337 NPN transistor
 
 ![BC337](./bc337.gif)
