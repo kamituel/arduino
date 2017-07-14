@@ -1,8 +1,8 @@
 # Passive elements
 
-- [5mm LED diode][]
-- [BC337 NPN transistor][]
-- [Resistor color codes][]
+- [5mm LED diode](#5mm-led-diode)
+- [BC337 NPN transistor](#bc337-npn-transistor)
+- [Resistor color codes](#resistor-color-codes)
 
 ## 5mm LED diode
 
